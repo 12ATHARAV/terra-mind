@@ -1,10 +1,10 @@
 import os
 import json
 import glob
+from src.config import settings
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.documents import Document
-from src.config import settings
 
 
 def run_ingestion():
@@ -29,7 +29,8 @@ def run_ingestion():
                 )
                 documents.append(doc)
     print(f"[*] Loaded {len(documents)} scientific records.")
-    embeddings = HuggingFaceEmbeddings(model_name=settings.embedding_model)
+    print("[*] Embedding model loading (local cache)...")
+    embeddings = HuggingFaceEmbeddings(model_name=settings.embedding_model, model_kwargs={'local_files_only': True})
     os.makedirs(settings.chroma_persist_dir, exist_ok=True)
     vectorstore = Chroma.from_documents(
         documents=documents,
