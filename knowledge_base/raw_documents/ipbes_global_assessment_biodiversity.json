@@ -1,0 +1,12 @@
+[
+  {
+    "id": "IPBES-GA-2019-CH03",
+    "title": "IPBES Global Assessment Report on Biodiversity and Ecosystem Services",
+    "source": "Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services (IPBES)",
+    "year": 2019,
+    "doi": "10.5281/zenodo.3831879",
+    "domain": "biodiversity_indicators",
+    "climate_zone": "terrestrial",
+    "content": "Restoring hedgerows and continuous biological corridors in fragmented agricultural landscapes lifts the Shannon-Wiener Diversity Index for avifauna and native pollinators by 0.35 to 0.60 within 3 years. Linear connectivity decreases local extinction risks by 48% across isolated habitat patches."
+  }
+]

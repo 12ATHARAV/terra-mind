@@ -1,0 +1,12 @@
+services:
+  terra-mind:
+    build: .
+    ports:
+      - "8000:8000"
+      - "8501:8501"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - VECTOR_DB_TYPE=chroma
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

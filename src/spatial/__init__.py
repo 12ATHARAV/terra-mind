@@ -1,0 +1,1 @@
+from .ecoregion_resolver import resolve_spatial_profile

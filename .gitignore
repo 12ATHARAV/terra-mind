@@ -1,0 +1,10 @@
+﻿__pycache__/
+*.py[cod]
+*.class
+.env
+data/chroma_db/
+.pytest_cache/
+*.log
+pdf_text.txt
+.vscode/
+.idea/

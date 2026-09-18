@@ -1,0 +1,22 @@
+[
+  {
+    "id": "FAO-SOC-2020-01",
+    "title": "A protocol for measurement, monitoring and reporting of soil organic carbon in agricultural landscapes",
+    "source": "Food and Agriculture Organization (FAO)",
+    "year": 2020,
+    "doi": "10.4060/ca7471en",
+    "domain": "soil_health",
+    "climate_zone": "semi-arid",
+    "content": "Introducing legume-based multi-species cover crops (such as Crotalaria juncea or Vigna unguiculata) in semi-arid monoculture regimes increases soil organic carbon (SOC) by 15-25% (mean delta 0.2-0.35% absolute) within 24 to 36 months. Root exudates stimulate microbial biomass carbon and enhance mycorrhizal hyphal networks, reducing bulk density and increasing soil aggregate stability by 32%."
+  },
+  {
+    "id": "FAO-AGRO-2021-02",
+    "title": "Agroforestry and Soil Water Dynamics in Drylands",
+    "source": "FAO / ICRAF",
+    "year": 2021,
+    "doi": "10.4060/cb3155en",
+    "domain": "agroforestry",
+    "climate_zone": "arid_and_semi_arid",
+    "content": "Silvopastoral and alley-cropping integration using Faidherbia albida in semi-arid drylands enhances soil water infiltration rates by 120-180% compared to open monocropping. Canopy shading reduces surface soil evaporation by up to 28%, preserving rhizosphere moisture during critical dry spells and enabling higher invertebrate and microbial biodiversity."
+  }
+]
