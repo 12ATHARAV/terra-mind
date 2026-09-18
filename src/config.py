@@ -2,7 +2,6 @@ import os
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 os.environ["ANONYMIZED_TELEMETRY"] = "False"
 

@@ -5,7 +5,12 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 
 def get_vectorstore() -> Chroma:
-    embeddings = HuggingFaceEmbeddings(model_name=settings.embedding_model, model_kwargs={'local_files_only': True})
+    if not os.path.exists(settings.chroma_persist_dir) or not os.listdir(settings.chroma_persist_dir):
+        print("[!] Local ChromaDB missing. Auto-building from corpus...")
+        from knowledge_base.ingestion_pipeline import run_ingestion
+        run_ingestion()
+        
+    embeddings = HuggingFaceEmbeddings(model_name=settings.embedding_model, model_kwargs={'local_files_only': False})
     os.makedirs(settings.chroma_persist_dir, exist_ok=True)
     return Chroma(
         persist_directory=settings.chroma_persist_dir,

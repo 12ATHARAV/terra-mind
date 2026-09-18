@@ -29,8 +29,8 @@ def run_ingestion():
                 )
                 documents.append(doc)
     print(f"[*] Loaded {len(documents)} scientific records.")
-    print("[*] Embedding model loading (local cache)...")
-    embeddings = HuggingFaceEmbeddings(model_name=settings.embedding_model, model_kwargs={'local_files_only': True})
+    print("[*] Embedding model loading (cloud/local)...")
+    embeddings = HuggingFaceEmbeddings(model_name=settings.embedding_model, model_kwargs={'local_files_only': False})
     os.makedirs(settings.chroma_persist_dir, exist_ok=True)
     vectorstore = Chroma.from_documents(
         documents=documents,
