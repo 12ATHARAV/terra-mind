@@ -308,7 +308,7 @@ GOOGLE_API_KEY="your_key" docker compose up --build
 
 ## 👤 Author & Acknowledgments
 
-* **Lead Architect & Developer:** **Atharav Dhumone**
+* **Lead Architect & Developer:** **Atharv Dhumone**
 * **Target Challenge:** **Darukaa.Earth AI Biodiversity Challenge**
 * **Organization:** Darukaa.Earth
 
