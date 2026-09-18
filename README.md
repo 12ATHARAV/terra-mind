@@ -1,3 +1,13 @@
+﻿---
+title: TERRA-MIND
+emoji: 🌱
+colorFrom: green
+colorTo: blue
+sdk: streamlit
+sdk_version: 1.42.2
+app_file: app.py
+pinned: false
+---
 # TERRA-MIND: AI Biodiversity & Ecological Intelligence Engine
 
 **Darukaa.Earth Hackathon Submission**
@@ -71,3 +81,4 @@ Set `LLM_MODEL` in `.env` to switch models:
 
 ## Author
 - **Atharav Dhumone**
+
