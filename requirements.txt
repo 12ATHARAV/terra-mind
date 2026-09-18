@@ -11,7 +11,7 @@ uvicorn
 streamlit
 chromadb
 sentence-transformers
-numpy
+numpy<2
 pandas
 folium
 streamlit-folium
