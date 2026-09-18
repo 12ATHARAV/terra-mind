@@ -306,17 +306,6 @@ GOOGLE_API_KEY="your_key" docker compose up --build
 
 ---
 
-## 🏆 Hackathon Compliance Checklist
-
-| Evaluator Focus Area | Lead Evaluator | Compliance in TERRA-MIND |
-| :--- | :--- | :--- |
-| **Multi-Modal Ecological Coupling** | Guneet Mutreja | Hardcoded multi-metric matrix connecting SOC $\times$ Precipitation $\times$ Fragmentation $\rightarrow$ trophic guild restoration. |
-| **Clean Architecture & Modularity** | Harsh Kumar | Modular package layout (`src/agents`, `src/engine`, `src/rag`, `src/schemas`), clean LangGraph StateGraph design. |
-| **Production Readiness & Testing** | Utkarsh Gauniyal | 15/15 unit tests passing (`pytest`), automated zero-crash fallback engine, containerized Docker deployment. |
-| **Domain Relevance & Deliverables** | Ankita Dasgupta | Clear short/medium/long-term horizons, verifiable academic DOIs, structured documentation, live cloud deployment. |
-
----
-
 ## 👤 Author & Acknowledgments
 
 * **Lead Architect & Developer:** **Atharav Dhumone**
