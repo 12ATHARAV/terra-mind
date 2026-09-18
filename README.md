@@ -1,13 +1,3 @@
----
-title: TERRA-MIND
-emoji: 🌱
-colorFrom: green
-colorTo: blue
-sdk: docker
-sdk_version: 1.42.2
-app_file: app.py
-pinned: false
----
 
 <div align="center">
 
