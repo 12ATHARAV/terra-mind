@@ -32,6 +32,7 @@ def _get_llm():
             model=settings.llm_model,
             temperature=settings.llm_temperature,
             google_api_key=settings.google_api_key,
+            timeout=5.0,
         )
     return _llm
 
