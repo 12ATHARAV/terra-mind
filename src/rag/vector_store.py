@@ -1,7 +1,7 @@
 import os
-from src.config import settings
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from src.config import settings
 
 
 def get_vectorstore() -> Chroma:
@@ -10,7 +10,10 @@ def get_vectorstore() -> Chroma:
         from knowledge_base.ingestion_pipeline import run_ingestion
         run_ingestion()
         
-    embeddings = HuggingFaceEmbeddings(model_name=settings.embedding_model, model_kwargs={'local_files_only': False})
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model="models/embedding-001",
+        google_api_key=settings.google_api_key
+    )
     os.makedirs(settings.chroma_persist_dir, exist_ok=True)
     return Chroma(
         persist_directory=settings.chroma_persist_dir,

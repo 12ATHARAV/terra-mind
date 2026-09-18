@@ -3,40 +3,40 @@ import json
 import glob
 from src.config import settings
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.documents import Document
 
 
 def run_ingestion():
-    print("[*] Initializing Knowledge Ingestion Pipeline...")
-    doc_files = glob.glob("knowledge_base/raw_documents/*.json")
+    print("Starting Knowledge Base Ingestion...")
     documents = []
-    for fpath in doc_files:
-        with open(fpath, "r", encoding="utf-8") as f:
+    
+    # Load raw documents
+    data_dir = os.path.join(os.path.dirname(__file__), 'raw_documents')
+    for filepath in glob.glob(os.path.join(data_dir, '*.json')):
+        with open(filepath, 'r', encoding='utf-8') as f:
             data = json.load(f)
-            for item in data:
-                doc = Document(
-                    page_content=item["content"],
-                    metadata={
-                        "citation_id": item["id"],
-                        "source_title": item["title"],
-                        "authors_or_organization": item["source"],
-                        "year": item["year"],
-                        "doi_or_url": item["doi"],
-                        "domain": item.get("domain", "general"),
-                        "climate_zone": item.get("climate_zone", "all")
-                    }
-                )
-                documents.append(doc)
+            # Flatten JSON arrays into Langchain Documents
+            if isinstance(data, list):
+                for item in data:
+                    text_content = item.pop("text", "") or item.pop("content", "") or str(item)
+                    doc = Document(
+                        page_content=text_content,
+                        metadata=item
+                    )
+                    documents.append(doc)
     print(f"[*] Loaded {len(documents)} scientific records.")
-    print("[*] Embedding model loading (cloud/local)...")
-    embeddings = HuggingFaceEmbeddings(model_name=settings.embedding_model, model_kwargs={'local_files_only': False})
+    print("[*] Embedding model loading (Gemini API)...")
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model="models/embedding-001",
+        google_api_key=settings.google_api_key
+    )
     os.makedirs(settings.chroma_persist_dir, exist_ok=True)
     vectorstore = Chroma.from_documents(
         documents=documents,
         embedding=embeddings,
         persist_directory=settings.chroma_persist_dir,
-        collection_name="darukaa_biodiversity_kb"
+        collection_name="darukaa_biodiversity_kb",
     )
     print(f"[+] KB ingested into ChromaDB at: {settings.chroma_persist_dir}")
     return vectorstore
