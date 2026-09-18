@@ -1,11 +1,18 @@
-﻿__pycache__/
+__pycache__/
 *.py[cod]
 *.class
 .env
 .pytest_cache/
 *.log
-pdf_text.txt
 .vscode/
 .idea/
 
+# Office lock files & temporary files
+~$*
+*.tmp
+pdf_extracted.txt
+pdf_text.txt
+
+# Local data & ChromaDB
 data/chroma_db/
+TERRA_MIND_DARUKAA_SUBMISSION.docx
